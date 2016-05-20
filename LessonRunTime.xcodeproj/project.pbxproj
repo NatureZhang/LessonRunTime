@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D96690D01CEF0D3B00B6AB98 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690CF1CEF0D3B00B6AB98 /* Person.m */; };
+		D96690D61CEF130600B6AB98 /* Person+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690D51CEF130600B6AB98 /* Person+Property.m */; };
+		D96690D91CEF17CA00B6AB98 /* Person+MethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690D81CEF17CA00B6AB98 /* Person+MethodSwizzling.m */; };
+		D96690DF1CEF247D00B6AB98 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690DE1CEF247D00B6AB98 /* NSObject+Parse.m */; };
 		D9F47CFB1CEDBA5B0067C8BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F47CFA1CEDBA5B0067C8BF /* main.m */; };
 		D9F47CFE1CEDBA5B0067C8BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F47CFD1CEDBA5B0067C8BF /* AppDelegate.m */; };
 		D9F47D011CEDBA5B0067C8BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F47D001CEDBA5B0067C8BF /* ViewController.m */; };
@@ -30,6 +34,14 @@
 
 /* Begin PBXFileReference section */
 		D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = objc.xcodeproj; path = "objc4-680/objc.xcodeproj"; sourceTree = "<group>"; };
+		D96690CE1CEF0D3B00B6AB98 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		D96690CF1CEF0D3B00B6AB98 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		D96690D41CEF130600B6AB98 /* Person+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Person+Property.h"; sourceTree = "<group>"; };
+		D96690D51CEF130600B6AB98 /* Person+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Person+Property.m"; sourceTree = "<group>"; };
+		D96690D71CEF17CA00B6AB98 /* Person+MethodSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Person+MethodSwizzling.h"; sourceTree = "<group>"; };
+		D96690D81CEF17CA00B6AB98 /* Person+MethodSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Person+MethodSwizzling.m"; sourceTree = "<group>"; };
+		D96690DD1CEF247D00B6AB98 /* NSObject+Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Parse.h"; sourceTree = "<group>"; };
+		D96690DE1CEF247D00B6AB98 /* NSObject+Parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Parse.m"; sourceTree = "<group>"; };
 		D9F47CF61CEDBA5B0067C8BF /* LessonRunTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LessonRunTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F47CFA1CEDBA5B0067C8BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D9F47CFC1CEDBA5B0067C8BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,11 +78,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D96690CD1CEF018D00B6AB98 /* RunTime Example */ = {
+			isa = PBXGroup;
+			children = (
+				D96690CE1CEF0D3B00B6AB98 /* Person.h */,
+				D96690CF1CEF0D3B00B6AB98 /* Person.m */,
+				D96690D41CEF130600B6AB98 /* Person+Property.h */,
+				D96690D51CEF130600B6AB98 /* Person+Property.m */,
+				D96690D71CEF17CA00B6AB98 /* Person+MethodSwizzling.h */,
+				D96690D81CEF17CA00B6AB98 /* Person+MethodSwizzling.m */,
+				D96690DD1CEF247D00B6AB98 /* NSObject+Parse.h */,
+				D96690DE1CEF247D00B6AB98 /* NSObject+Parse.m */,
+			);
+			name = "RunTime Example";
+			sourceTree = "<group>";
+		};
 		D9F47CED1CEDBA5B0067C8BF = {
 			isa = PBXGroup;
 			children = (
-				D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */,
 				D9F47CF81CEDBA5B0067C8BF /* LessonRunTime */,
+				D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */,
 				D9F47CF71CEDBA5B0067C8BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +117,7 @@
 				D9F47CFD1CEDBA5B0067C8BF /* AppDelegate.m */,
 				D9F47CFF1CEDBA5B0067C8BF /* ViewController.h */,
 				D9F47D001CEDBA5B0067C8BF /* ViewController.m */,
+				D96690CD1CEF018D00B6AB98 /* RunTime Example */,
 				D9F47D5A1CEEBFCC0067C8BF /* SelfOrSuper */,
 				D9F47D021CEDBA5B0067C8BF /* Main.storyboard */,
 				D9F47D051CEDBA5B0067C8BF /* Assets.xcassets */,
@@ -208,9 +236,13 @@
 			files = (
 				D9F47D591CEEBE820067C8BF /* Son.cpp in Sources */,
 				D9F47D011CEDBA5B0067C8BF /* ViewController.m in Sources */,
+				D96690D01CEF0D3B00B6AB98 /* Person.m in Sources */,
+				D96690D91CEF17CA00B6AB98 /* Person+MethodSwizzling.m in Sources */,
 				D9F47D151CEEB51A0067C8BF /* Son.m in Sources */,
 				D9F47D121CEEB5020067C8BF /* Father.m in Sources */,
 				D9F47CFE1CEDBA5B0067C8BF /* AppDelegate.m in Sources */,
+				D96690DF1CEF247D00B6AB98 /* NSObject+Parse.m in Sources */,
+				D96690D61CEF130600B6AB98 /* Person+Property.m in Sources */,
 				D9F47CFB1CEDBA5B0067C8BF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
