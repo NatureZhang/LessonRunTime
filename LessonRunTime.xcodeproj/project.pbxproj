@@ -13,9 +13,23 @@
 		D9F47D041CEDBA5B0067C8BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F47D021CEDBA5B0067C8BF /* Main.storyboard */; };
 		D9F47D061CEDBA5B0067C8BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F47D051CEDBA5B0067C8BF /* Assets.xcassets */; };
 		D9F47D091CEDBA5B0067C8BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F47D071CEDBA5B0067C8BF /* LaunchScreen.storyboard */; };
+		D9F47D121CEEB5020067C8BF /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F47D111CEEB5020067C8BF /* Father.m */; };
+		D9F47D151CEEB51A0067C8BF /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F47D141CEEB51A0067C8BF /* Son.m */; };
+		D9F47D591CEEBE820067C8BF /* Son.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9F47D581CEEBE820067C8BF /* Son.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D96690CB1CEEDDC800B6AB98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
+			remoteInfo = objc;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = objc.xcodeproj; path = "objc4-680/objc.xcodeproj"; sourceTree = "<group>"; };
 		D9F47CF61CEDBA5B0067C8BF /* LessonRunTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LessonRunTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F47CFA1CEDBA5B0067C8BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D9F47CFC1CEDBA5B0067C8BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +40,11 @@
 		D9F47D051CEDBA5B0067C8BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9F47D081CEDBA5B0067C8BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9F47D0A1CEDBA5B0067C8BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9F47D101CEEB5020067C8BF /* Father.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
+		D9F47D111CEEB5020067C8BF /* Father.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
+		D9F47D131CEEB51A0067C8BF /* Son.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
+		D9F47D141CEEB51A0067C8BF /* Son.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
+		D9F47D581CEEBE820067C8BF /* Son.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Son.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,9 +58,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D96690C71CEEDDC800B6AB98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D96690CC1CEEDDC800B6AB98 /* libobjc.A.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D9F47CED1CEDBA5B0067C8BF = {
 			isa = PBXGroup;
 			children = (
+				D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */,
 				D9F47CF81CEDBA5B0067C8BF /* LessonRunTime */,
 				D9F47CF71CEDBA5B0067C8BF /* Products */,
 			);
@@ -62,6 +90,7 @@
 				D9F47CFD1CEDBA5B0067C8BF /* AppDelegate.m */,
 				D9F47CFF1CEDBA5B0067C8BF /* ViewController.h */,
 				D9F47D001CEDBA5B0067C8BF /* ViewController.m */,
+				D9F47D5A1CEEBFCC0067C8BF /* SelfOrSuper */,
 				D9F47D021CEDBA5B0067C8BF /* Main.storyboard */,
 				D9F47D051CEDBA5B0067C8BF /* Assets.xcassets */,
 				D9F47D071CEDBA5B0067C8BF /* LaunchScreen.storyboard */,
@@ -77,6 +106,18 @@
 				D9F47CFA1CEDBA5B0067C8BF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9F47D5A1CEEBFCC0067C8BF /* SelfOrSuper */ = {
+			isa = PBXGroup;
+			children = (
+				D9F47D101CEEB5020067C8BF /* Father.h */,
+				D9F47D111CEEB5020067C8BF /* Father.m */,
+				D9F47D131CEEB51A0067C8BF /* Son.h */,
+				D9F47D141CEEB51A0067C8BF /* Son.m */,
+				D9F47D581CEEBE820067C8BF /* Son.cpp */,
+			);
+			name = SelfOrSuper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,12 +165,28 @@
 			mainGroup = D9F47CED1CEDBA5B0067C8BF;
 			productRefGroup = D9F47CF71CEDBA5B0067C8BF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D96690C71CEEDDC800B6AB98 /* Products */;
+					ProjectRef = D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D9F47CF51CEDBA5B0067C8BF /* LessonRunTime */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D96690CC1CEEDDC800B6AB98 /* libobjc.A.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libobjc.A.dylib;
+			remoteRef = D96690CB1CEEDDC800B6AB98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D9F47CF41CEDBA5B0067C8BF /* Resources */ = {
@@ -149,7 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9F47D591CEEBE820067C8BF /* Son.cpp in Sources */,
 				D9F47D011CEDBA5B0067C8BF /* ViewController.m in Sources */,
+				D9F47D151CEEB51A0067C8BF /* Son.m in Sources */,
+				D9F47D121CEEB5020067C8BF /* Father.m in Sources */,
 				D9F47CFE1CEDBA5B0067C8BF /* AppDelegate.m in Sources */,
 				D9F47CFB1CEDBA5B0067C8BF /* main.m in Sources */,
 			);
@@ -298,6 +358,7 @@
 				D9F47D0F1CEDBA5B0067C8BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
