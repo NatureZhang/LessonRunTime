@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D914E9AA1CF2A552002EF4A2 /* UIViewController+Example.m in Sources */ = {isa = PBXBuildFile; fileRef = D914E9A91CF2A552002EF4A2 /* UIViewController+Example.m */; };
+		D914E9B31CF2B042002EF4A2 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D914E9B11CF2B042002EF4A2 /* TestViewController.m */; };
+		D914E9B41CF2B042002EF4A2 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D914E9B21CF2B042002EF4A2 /* TestViewController.xib */; };
+		D914E9E91CF2EFBD002EF4A2 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = D914E9E81CF2EFBD002EF4A2 /* Bird.m */; };
 		D96690D01CEF0D3B00B6AB98 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690CF1CEF0D3B00B6AB98 /* Person.m */; };
 		D96690D61CEF130600B6AB98 /* Person+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690D51CEF130600B6AB98 /* Person+Property.m */; };
 		D96690D91CEF17CA00B6AB98 /* Person+MethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690D81CEF17CA00B6AB98 /* Person+MethodSwizzling.m */; };
@@ -33,6 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D914E9A81CF2A552002EF4A2 /* UIViewController+Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Example.h"; sourceTree = "<group>"; };
+		D914E9A91CF2A552002EF4A2 /* UIViewController+Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Example.m"; sourceTree = "<group>"; };
+		D914E9B01CF2B042002EF4A2 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		D914E9B11CF2B042002EF4A2 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		D914E9B21CF2B042002EF4A2 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		D914E9E71CF2EFBD002EF4A2 /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
+		D914E9E81CF2EFBD002EF4A2 /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
 		D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = objc.xcodeproj; path = "objc4-680/objc.xcodeproj"; sourceTree = "<group>"; };
 		D96690CE1CEF0D3B00B6AB98 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		D96690CF1CEF0D3B00B6AB98 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
@@ -81,8 +92,12 @@
 		D96690CD1CEF018D00B6AB98 /* RunTime Example */ = {
 			isa = PBXGroup;
 			children = (
+				D914E9A81CF2A552002EF4A2 /* UIViewController+Example.h */,
+				D914E9A91CF2A552002EF4A2 /* UIViewController+Example.m */,
 				D96690CE1CEF0D3B00B6AB98 /* Person.h */,
 				D96690CF1CEF0D3B00B6AB98 /* Person.m */,
+				D914E9E71CF2EFBD002EF4A2 /* Bird.h */,
+				D914E9E81CF2EFBD002EF4A2 /* Bird.m */,
 				D96690D41CEF130600B6AB98 /* Person+Property.h */,
 				D96690D51CEF130600B6AB98 /* Person+Property.m */,
 				D96690D71CEF17CA00B6AB98 /* Person+MethodSwizzling.h */,
@@ -117,6 +132,9 @@
 				D9F47CFD1CEDBA5B0067C8BF /* AppDelegate.m */,
 				D9F47CFF1CEDBA5B0067C8BF /* ViewController.h */,
 				D9F47D001CEDBA5B0067C8BF /* ViewController.m */,
+				D914E9B01CF2B042002EF4A2 /* TestViewController.h */,
+				D914E9B11CF2B042002EF4A2 /* TestViewController.m */,
+				D914E9B21CF2B042002EF4A2 /* TestViewController.xib */,
 				D96690CD1CEF018D00B6AB98 /* RunTime Example */,
 				D9F47D5A1CEEBFCC0067C8BF /* SelfOrSuper */,
 				D9F47D021CEDBA5B0067C8BF /* Main.storyboard */,
@@ -223,6 +241,7 @@
 			files = (
 				D9F47D091CEDBA5B0067C8BF /* LaunchScreen.storyboard in Resources */,
 				D9F47D061CEDBA5B0067C8BF /* Assets.xcassets in Resources */,
+				D914E9B41CF2B042002EF4A2 /* TestViewController.xib in Resources */,
 				D9F47D041CEDBA5B0067C8BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,14 +253,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D914E9E91CF2EFBD002EF4A2 /* Bird.m in Sources */,
 				D9F47D591CEEBE820067C8BF /* Son.cpp in Sources */,
 				D9F47D011CEDBA5B0067C8BF /* ViewController.m in Sources */,
 				D96690D01CEF0D3B00B6AB98 /* Person.m in Sources */,
 				D96690D91CEF17CA00B6AB98 /* Person+MethodSwizzling.m in Sources */,
 				D9F47D151CEEB51A0067C8BF /* Son.m in Sources */,
 				D9F47D121CEEB5020067C8BF /* Father.m in Sources */,
+				D914E9B31CF2B042002EF4A2 /* TestViewController.m in Sources */,
 				D9F47CFE1CEDBA5B0067C8BF /* AppDelegate.m in Sources */,
 				D96690DF1CEF247D00B6AB98 /* NSObject+Parse.m in Sources */,
+				D914E9AA1CF2A552002EF4A2 /* UIViewController+Example.m in Sources */,
 				D96690D61CEF130600B6AB98 /* Person+Property.m in Sources */,
 				D9F47CFB1CEDBA5B0067C8BF /* main.m in Sources */,
 			);

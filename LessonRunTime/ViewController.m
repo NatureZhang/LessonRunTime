@@ -7,9 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "Son.h"
-#import "Person.h"
-#import <objc/runtime.h>
+#import "TestViewController.h"
+
 
 // 目的在于系统的学习
 /*
@@ -212,6 +211,17 @@
  */
 
 
+/*
+ 
+ 消息转发过程
+ 1  进入resolveInstancMethod: 方法，指定是否动态添加方法。若返回NO，则进入下一步，若返回YES，则通过class_addMethod 函数动态的添加方法，消息得到处理，此流程完毕
+ 
+ 2  resolveInstancMethod: 方法返回NO时，就会进入forwardingTargetForSelector:方法，用于指定哪个对象响应selector。返回nil，则进入下一步，返回某个对象，则会调用该对象的方法
+ 3  若forwardingTargetForSelector: 返回的是nil，则我们首先要通过methodSignatureForSelector：来指定方法签名，返回nil，表示不处理，若返回方法签名，则会进入下一步
+ 4  当methodSignatureForSelector 方法返回方法签名后，就会调用forwardInvocation：方法，我们可以通过anInvocation对象做很多处理，比如修改实现方法，修改相应对象等
+ 
+ */
+
 
 @interface ViewController ()
 
@@ -223,49 +233,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self getIvars];
-    [self getPropertys];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-// 获取ivar
-- (void)getIvars {
+- (IBAction)gotoTestVC:(id)sender {
+   
+    TestViewController *testVC = [[TestViewController alloc] init];
+    [self.navigationController pushViewController:testVC animated:YES];
     
-    NSLog(@"=============== class ivars ===========\n");
-    
-    unsigned int ivarCount = 0;
-    
-    Ivar *ivars = class_copyIvarList([Person class], &ivarCount);
-    
-    for (int i = 0; i < ivarCount ; i++) {
-        
-        const char *ivarName = ivar_getName(ivars[i]);
-        
-        NSLog(@"%s", ivarName);
-    }
 }
-
-- (void)getPropertys {
-    
-    NSLog(@"=============== class propertys ===========\n");
-    
-    unsigned int  pCount = 0;
-    
-    objc_property_t *properties = class_copyPropertyList([Person class], &pCount);
-    
-    for (int i = 0; i < pCount; i ++) {
-        
-        const char *pName = property_getName(properties[i]);
-        
-        NSLog(@"%s", pName);
-    }
-
-}
-
 
 @end

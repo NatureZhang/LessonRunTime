@@ -1,15 +1,15 @@
 //
-//  Person+MethodSwizzling.m
-//  LessonRunTime
+//  UIViewController+Example.m
+//  MJRefreshExample
 //
-//  Created by zhangdong on 16/5/20.
-//  Copyright © 2016年 zhangdong. All rights reserved.
+//  Created by MJ Lee on 15/3/12.
+//  Copyright (c) 2015年 小码哥. All rights reserved.
 //
 
-#import "Person+MethodSwizzling.h"
+#import "UIViewController+Example.h"
 #import <objc/runtime.h>
 
-@implementation Person (MethodSwizzling)
+@implementation UIViewController (Example)
 
 #pragma mark - swizzle
 //+ (void)load {
@@ -27,12 +27,6 @@
 //    
 //    method_exchangeImplementations(method1, method2);
 //}
-//
-//- (void)deallocSwizzle {
-//    NSLog(@"%@被销毁了", self);
-//    
-//    [self deallocSwizzle];
-//}
 
 + (void)load {
     
@@ -41,7 +35,7 @@
         
         Class aclass = [self class];
         // 当要替换一个类方法的时候使用下面的方法
-//        Class aClass = object_getClass((id)self);
+        //        Class aClass = object_getClass((id)self);
         
         SEL originalSelector = NSSelectorFromString(@"dealloc");
         SEL swizzledSelector = @selector(deallocSwizzle);
@@ -51,10 +45,11 @@
         
         /*
          
-         Adds a new method to a class with a given name and implementation.
-         YES if the method was added successfully, otherwise NO (for example, the class already contains a method implementation with that name).
+         如果类中不存在要替换的方法，那就先用class_addMethod 和 class_replaceMethod 函数替换两个方法的实现。如果类中已经有了想要替换的方法，那么就调用method_exchangeImplementations 函数交换两个方法的IMP。
          
          */
+        
+        
         BOOL didAddMethod = class_addMethod(aclass,
                                             originalSelector,
                                             method_getImplementation(swizzledMethod),
@@ -68,10 +63,12 @@
             method_exchangeImplementations(originalMethod, swizzledMethod);
         }
     });
+
 }
 
 - (void)deallocSwizzle {
-
+    NSLog(@"%@被销毁了", self);
+    
     [self deallocSwizzle];
 }
 
