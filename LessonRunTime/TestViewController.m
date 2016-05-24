@@ -9,8 +9,13 @@
 #import "TestViewController.h"
 #import "Son.h"
 #import "Person.h"
+#import "ManPerson.h"
 #import "Person+Property.h"
 #import <objc/runtime.h>
+#import "NSObject+Parse.h"
+
+#import "User.h"
+#import "UserList.h"
 
 @interface TestViewController ()
 
@@ -21,11 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //    [self getIvars];
-    //    [self getPropertys];
+    [self getIvars];
+    [self getPropertys];
     
     [self categoryProperty];
 
+    [self dicToModel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +51,9 @@
         
         const char *ivarName = ivar_getName(ivars[i]);
         
-        NSLog(@"%s", ivarName);
+        const char *ivarType = ivar_getTypeEncoding(ivars[i]);
+        
+        NSLog(@"%s  :  %s", ivarType, ivarName);
     }
 }
 
@@ -55,13 +63,16 @@
     
     unsigned int  pCount = 0;
     
-    objc_property_t *properties = class_copyPropertyList([Person class], &pCount);
+    objc_property_t *properties = class_copyPropertyList([ManPerson class], &pCount);
     
     for (int i = 0; i < pCount; i ++) {
         
         const char *pName = property_getName(properties[i]);
         
-        NSLog(@"%s", pName);
+        const char  *className = property_getAttributes(properties[i]);
+        
+        NSLog(@"%s : %s", className, pName);
+        
     }
     
 }
@@ -75,5 +86,81 @@
 //    [person performSelector:@selector(fly)];
 }
 
+- (void)dicToModel {
+//    // 1.定义一个字典
+//    NSDictionary *dict = @{
+//                           @"name" : @"Jack",
+//                           @"icon" : @"lufy.png",
+//                           @"age" : @"20",
+//                           @"height" : @1.55,
+//                           @"money" : @"100.9",
+//                           @"sex" : @(SexFemale),
+//                           @"gay" : @"1"
+//                           };
+//    
+//    // 2.将字典转为MJUser模型
+//    User *user = [User objectWithKeyValues:dict];
+//    
+//    // 3.打印MJUser模型的属性
+//    NSLog(@"name=%@, icon=%@, age=%zd, height=%@, money=%@, sex=%d, gay=%d", user.name, user.icon, user.age, user.height, user.money, user.sex, user.gay);
+    
+    
+    // 1.定义一个字典数组
+//    NSDictionary *dict = @{ @"userList" : @[
+//                                       @{
+//                                           @"name" : @"",
+//                                           @"icon" : @"lufy.png",
+//                                           },
+//                           
+//                                       @{
+//                                           @"name" : @"Rose",
+//                                           @"icon" : @"nami.png",
+//                                        }
+//                                           ]
+//                            };
+    
+//    NSDictionary *dict = @{
+//                           @"usersDesc":@"这是一个测试",
+//                           @"user" :  @{
+//                                        @"name" : @"zhangdong",
+//                                        @"icon" : @"lufy.png",
+//                                        },
+//                           @"userList":@[
+//                                   @{
+//                                       @"name" : @"zhangdong",
+//                                       @"icon" : @"lufy.png",
+//                                       },
+//                                   @{
+//                                       @"name" : @"zhangdong",
+//                                       @"icon" : @"lufy.png",
+//                                       },
+//                                   @{
+//                                       @"name" : @"zhangdong",
+//                                       @"icon" : @"lufy.png",
+//                                       }
+//                                   ]
+//                            };
+//    
+//    UserList *userList = [UserList objectWithKeyValues:dict];
+//    NSLog(@"%@--%@", userList.user.name, userList.usersDesc);
+//    NSDictionary *dic = [userList dictInstanceKeyValues];
+    
+    // 1.定义一个字典数组
+    NSArray *dictArray = @[
+                           @{
+                               @"name" : @"Jack",
+                               @"icon" : @"lufy.png",
+                               },
+                           
+                           @{
+                               @"name" : @"Rose",
+                               @"icon" : @"nami.png",
+                               }
+                           ];
+    NSArray *userArray = [User objectArrayWithValueArray:dictArray];
+
+    NSArray *values = [User arrayKeyValuesWithObjectArray:userArray];
+    
+}
 
 @end

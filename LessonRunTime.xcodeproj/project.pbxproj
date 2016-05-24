@@ -24,6 +24,9 @@
 		D9F47D121CEEB5020067C8BF /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F47D111CEEB5020067C8BF /* Father.m */; };
 		D9F47D151CEEB51A0067C8BF /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F47D141CEEB51A0067C8BF /* Son.m */; };
 		D9F47D591CEEBE820067C8BF /* Son.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9F47D581CEEBE820067C8BF /* Son.cpp */; };
+		D9F9A9AD1CF4061400FBE21A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9A9AC1CF4061400FBE21A /* User.m */; };
+		D9F9A9B21CF4086000FBE21A /* UserList.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9A9B11CF4086000FBE21A /* UserList.m */; };
+		D9F9A9B61CF433C900FBE21A /* ManPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9A9B51CF433C900FBE21A /* ManPerson.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,12 @@
 		D9F47D131CEEB51A0067C8BF /* Son.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
 		D9F47D141CEEB51A0067C8BF /* Son.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
 		D9F47D581CEEBE820067C8BF /* Son.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Son.cpp; sourceTree = "<group>"; };
+		D9F9A9AB1CF4061400FBE21A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D9F9A9AC1CF4061400FBE21A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D9F9A9B01CF4086000FBE21A /* UserList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserList.h; sourceTree = "<group>"; };
+		D9F9A9B11CF4086000FBE21A /* UserList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserList.m; sourceTree = "<group>"; };
+		D9F9A9B41CF433C900FBE21A /* ManPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManPerson.h; sourceTree = "<group>"; };
+		D9F9A9B51CF433C900FBE21A /* ManPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManPerson.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,18 +101,18 @@
 		D96690CD1CEF018D00B6AB98 /* RunTime Example */ = {
 			isa = PBXGroup;
 			children = (
-				D914E9A81CF2A552002EF4A2 /* UIViewController+Example.h */,
-				D914E9A91CF2A552002EF4A2 /* UIViewController+Example.m */,
 				D96690CE1CEF0D3B00B6AB98 /* Person.h */,
 				D96690CF1CEF0D3B00B6AB98 /* Person.m */,
+				D9F9A9B41CF433C900FBE21A /* ManPerson.h */,
+				D9F9A9B51CF433C900FBE21A /* ManPerson.m */,
 				D914E9E71CF2EFBD002EF4A2 /* Bird.h */,
 				D914E9E81CF2EFBD002EF4A2 /* Bird.m */,
 				D96690D41CEF130600B6AB98 /* Person+Property.h */,
 				D96690D51CEF130600B6AB98 /* Person+Property.m */,
 				D96690D71CEF17CA00B6AB98 /* Person+MethodSwizzling.h */,
 				D96690D81CEF17CA00B6AB98 /* Person+MethodSwizzling.m */,
-				D96690DD1CEF247D00B6AB98 /* NSObject+Parse.h */,
-				D96690DE1CEF247D00B6AB98 /* NSObject+Parse.m */,
+				D914E9A81CF2A552002EF4A2 /* UIViewController+Example.h */,
+				D914E9A91CF2A552002EF4A2 /* UIViewController+Example.m */,
 			);
 			name = "RunTime Example";
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 				D914E9B01CF2B042002EF4A2 /* TestViewController.h */,
 				D914E9B11CF2B042002EF4A2 /* TestViewController.m */,
 				D914E9B21CF2B042002EF4A2 /* TestViewController.xib */,
+				D9F9A9B31CF42CBE00FBE21A /* Dic-Model */,
 				D96690CD1CEF018D00B6AB98 /* RunTime Example */,
 				D9F47D5A1CEEBFCC0067C8BF /* SelfOrSuper */,
 				D9F47D021CEDBA5B0067C8BF /* Main.storyboard */,
@@ -164,6 +174,19 @@
 				D9F47D581CEEBE820067C8BF /* Son.cpp */,
 			);
 			name = SelfOrSuper;
+			sourceTree = "<group>";
+		};
+		D9F9A9B31CF42CBE00FBE21A /* Dic-Model */ = {
+			isa = PBXGroup;
+			children = (
+				D96690DD1CEF247D00B6AB98 /* NSObject+Parse.h */,
+				D96690DE1CEF247D00B6AB98 /* NSObject+Parse.m */,
+				D9F9A9B01CF4086000FBE21A /* UserList.h */,
+				D9F9A9B11CF4086000FBE21A /* UserList.m */,
+				D9F9A9AB1CF4061400FBE21A /* User.h */,
+				D9F9A9AC1CF4061400FBE21A /* User.m */,
+			);
+			name = "Dic-Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +284,9 @@
 				D9F47D151CEEB51A0067C8BF /* Son.m in Sources */,
 				D9F47D121CEEB5020067C8BF /* Father.m in Sources */,
 				D914E9B31CF2B042002EF4A2 /* TestViewController.m in Sources */,
+				D9F9A9B21CF4086000FBE21A /* UserList.m in Sources */,
+				D9F9A9B61CF433C900FBE21A /* ManPerson.m in Sources */,
+				D9F9A9AD1CF4061400FBE21A /* User.m in Sources */,
 				D9F47CFE1CEDBA5B0067C8BF /* AppDelegate.m in Sources */,
 				D96690DF1CEF247D00B6AB98 /* NSObject+Parse.m in Sources */,
 				D914E9AA1CF2A552002EF4A2 /* UIViewController+Example.m in Sources */,
