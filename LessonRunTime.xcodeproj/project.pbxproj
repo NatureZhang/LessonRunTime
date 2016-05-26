@@ -27,6 +27,7 @@
 		D9F9A9AD1CF4061400FBE21A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9A9AC1CF4061400FBE21A /* User.m */; };
 		D9F9A9B21CF4086000FBE21A /* UserList.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9A9B11CF4086000FBE21A /* UserList.m */; };
 		D9F9A9B61CF433C900FBE21A /* ManPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9A9B51CF433C900FBE21A /* ManPerson.m */; };
+		F4A1564C1CF75F0C00EC5D4A /* NSObject+Parse2.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A1564B1CF75F0C00EC5D4A /* NSObject+Parse2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		D9F9A9B11CF4086000FBE21A /* UserList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserList.m; sourceTree = "<group>"; };
 		D9F9A9B41CF433C900FBE21A /* ManPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManPerson.h; sourceTree = "<group>"; };
 		D9F9A9B51CF433C900FBE21A /* ManPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManPerson.m; sourceTree = "<group>"; };
+		F4A1564B1CF75F0C00EC5D4A /* NSObject+Parse2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Parse2.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			children = (
 				D96690DD1CEF247D00B6AB98 /* NSObject+Parse.h */,
 				D96690DE1CEF247D00B6AB98 /* NSObject+Parse.m */,
+				F4A1564B1CF75F0C00EC5D4A /* NSObject+Parse2.m */,
 				D9F9A9B01CF4086000FBE21A /* UserList.h */,
 				D9F9A9B11CF4086000FBE21A /* UserList.m */,
 				D9F9A9AB1CF4061400FBE21A /* User.h */,
@@ -287,6 +290,7 @@
 				D9F9A9B21CF4086000FBE21A /* UserList.m in Sources */,
 				D9F9A9B61CF433C900FBE21A /* ManPerson.m in Sources */,
 				D9F9A9AD1CF4061400FBE21A /* User.m in Sources */,
+				F4A1564C1CF75F0C00EC5D4A /* NSObject+Parse2.m in Sources */,
 				D9F47CFE1CEDBA5B0067C8BF /* AppDelegate.m in Sources */,
 				D96690DF1CEF247D00B6AB98 /* NSObject+Parse.m in Sources */,
 				D914E9AA1CF2A552002EF4A2 /* UIViewController+Example.m in Sources */,

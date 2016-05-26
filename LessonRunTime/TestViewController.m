@@ -119,31 +119,31 @@
 //                                           ]
 //                            };
     
-//    NSDictionary *dict = @{
-//                           @"usersDesc":@"这是一个测试",
-//                           @"user" :  @{
-//                                        @"name" : @"zhangdong",
-//                                        @"icon" : @"lufy.png",
-//                                        },
-//                           @"userList":@[
-//                                   @{
-//                                       @"name" : @"zhangdong",
-//                                       @"icon" : @"lufy.png",
-//                                       },
-//                                   @{
-//                                       @"name" : @"zhangdong",
-//                                       @"icon" : @"lufy.png",
-//                                       },
-//                                   @{
-//                                       @"name" : @"zhangdong",
-//                                       @"icon" : @"lufy.png",
-//                                       }
-//                                   ]
-//                            };
-//    
-//    UserList *userList = [UserList objectWithKeyValues:dict];
-//    NSLog(@"%@--%@", userList.user.name, userList.usersDesc);
-//    NSDictionary *dic = [userList dictInstanceKeyValues];
+    NSDictionary *dict = @{
+                           @"usersDesc":@"这是一个测试",
+                           @"user" :  @{
+                                        @"name" : @"zhangdong",
+                                        @"icon" : @"lufy.png",
+                                        },
+                           @"userList":@[
+                                   @{
+                                       @"name" : @"zhangdong",
+                                       @"icon" : @"lufy.png",
+                                       },
+                                   @{
+                                       @"name" : @"zhangdong",
+                                       @"icon" : @"lufy.png",
+                                       },
+                                   @{
+                                       @"name" : @"zhangdong",
+                                       @"icon" : @"lufy.png",
+                                       }
+                                   ]
+                            };
+    
+    UserList *userList = [UserList objectWithKeyValues:dict];
+    NSLog(@"%@--%@", userList.user.name, userList.usersDesc);
+    NSDictionary *dic = [userList dictInstanceKeyValues];
     
     // 1.定义一个字典数组
     NSArray *dictArray = @[
@@ -160,6 +160,39 @@
     NSArray *userArray = [User objectArrayWithValueArray:dictArray];
 
     NSArray *values = [User arrayKeyValuesWithObjectArray:userArray];
+    
+    
+    NSArray *dictArray2 = @[
+                            
+                            @[
+                                @{
+                                    @"name" : @"Jack",
+                                    @"icon" : @"lufy.png",
+                                    },
+                                
+                                @{
+                                    @"name" : @"Rose",
+                                    @"icon" : @"nami.png",
+                                    }
+                                ],
+                            @[
+                                @{
+                                    @"name" : @"Jack",
+                                    @"icon" : @"lufy.png",
+                                    },
+                                
+                                @{
+                                    @"name" : @"Rose",
+                                    @"icon" : @"nami.png",
+                                    }
+                                ]
+                            
+                           ];
+
+    NSArray *userArray2 = [User objectArrayWithValueArray:dictArray2];
+    
+    NSArray *values2 = [User arrayKeyValuesWithObjectArray:userArray2];
+    
     
 }
 
