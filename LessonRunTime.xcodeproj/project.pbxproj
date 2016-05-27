@@ -11,6 +11,11 @@
 		D914E9B31CF2B042002EF4A2 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D914E9B11CF2B042002EF4A2 /* TestViewController.m */; };
 		D914E9B41CF2B042002EF4A2 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D914E9B21CF2B042002EF4A2 /* TestViewController.xib */; };
 		D914E9E91CF2EFBD002EF4A2 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = D914E9E81CF2EFBD002EF4A2 /* Bird.m */; };
+		D9201D721CF7EF400005A518 /* ChapterTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D9201D711CF7EF400005A518 /* ChapterTree.m */; };
+		D9201D771CF7EFCC0005A518 /* NodeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9201D761CF7EFCC0005A518 /* NodeItem.m */; };
+		D9201D7A1CF8111C0005A518 /* UserSon.m in Sources */ = {isa = PBXBuildFile; fileRef = D9201D791CF8111C0005A518 /* UserSon.m */; };
+		D9201D801CF822FF0005A518 /* NSObject+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = D9201D7F1CF822FF0005A518 /* NSObject+Class.m */; };
+		D9201D831CF8468F0005A518 /* ObjectProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D9201D821CF8468F0005A518 /* ObjectProperty.m */; };
 		D96690D01CEF0D3B00B6AB98 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690CF1CEF0D3B00B6AB98 /* Person.m */; };
 		D96690D61CEF130600B6AB98 /* Person+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690D51CEF130600B6AB98 /* Person+Property.m */; };
 		D96690D91CEF17CA00B6AB98 /* Person+MethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = D96690D81CEF17CA00B6AB98 /* Person+MethodSwizzling.m */; };
@@ -48,6 +53,16 @@
 		D914E9B21CF2B042002EF4A2 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		D914E9E71CF2EFBD002EF4A2 /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
 		D914E9E81CF2EFBD002EF4A2 /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
+		D9201D701CF7EF400005A518 /* ChapterTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterTree.h; sourceTree = "<group>"; };
+		D9201D711CF7EF400005A518 /* ChapterTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterTree.m; sourceTree = "<group>"; };
+		D9201D751CF7EFCC0005A518 /* NodeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeItem.h; sourceTree = "<group>"; };
+		D9201D761CF7EFCC0005A518 /* NodeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeItem.m; sourceTree = "<group>"; };
+		D9201D781CF8111C0005A518 /* UserSon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSon.h; sourceTree = "<group>"; };
+		D9201D791CF8111C0005A518 /* UserSon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSon.m; sourceTree = "<group>"; };
+		D9201D7E1CF822FF0005A518 /* NSObject+Class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Class.h"; sourceTree = "<group>"; };
+		D9201D7F1CF822FF0005A518 /* NSObject+Class.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Class.m"; sourceTree = "<group>"; };
+		D9201D811CF8468F0005A518 /* ObjectProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectProperty.h; sourceTree = "<group>"; };
+		D9201D821CF8468F0005A518 /* ObjectProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectProperty.m; sourceTree = "<group>"; };
 		D96690C61CEEDDC800B6AB98 /* objc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = objc.xcodeproj; path = "objc4-680/objc.xcodeproj"; sourceTree = "<group>"; };
 		D96690CE1CEF0D3B00B6AB98 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		D96690CF1CEF0D3B00B6AB98 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
@@ -183,11 +198,21 @@
 			children = (
 				D96690DD1CEF247D00B6AB98 /* NSObject+Parse.h */,
 				D96690DE1CEF247D00B6AB98 /* NSObject+Parse.m */,
+				D9201D7E1CF822FF0005A518 /* NSObject+Class.h */,
+				D9201D7F1CF822FF0005A518 /* NSObject+Class.m */,
+				D9201D811CF8468F0005A518 /* ObjectProperty.h */,
+				D9201D821CF8468F0005A518 /* ObjectProperty.m */,
 				F4A1564B1CF75F0C00EC5D4A /* NSObject+Parse2.m */,
+				D9201D701CF7EF400005A518 /* ChapterTree.h */,
+				D9201D711CF7EF400005A518 /* ChapterTree.m */,
+				D9201D751CF7EFCC0005A518 /* NodeItem.h */,
+				D9201D761CF7EFCC0005A518 /* NodeItem.m */,
 				D9F9A9B01CF4086000FBE21A /* UserList.h */,
 				D9F9A9B11CF4086000FBE21A /* UserList.m */,
 				D9F9A9AB1CF4061400FBE21A /* User.h */,
 				D9F9A9AC1CF4061400FBE21A /* User.m */,
+				D9201D781CF8111C0005A518 /* UserSon.h */,
+				D9201D791CF8111C0005A518 /* UserSon.m */,
 			);
 			name = "Dic-Model";
 			sourceTree = "<group>";
@@ -286,16 +311,21 @@
 				D96690D91CEF17CA00B6AB98 /* Person+MethodSwizzling.m in Sources */,
 				D9F47D151CEEB51A0067C8BF /* Son.m in Sources */,
 				D9F47D121CEEB5020067C8BF /* Father.m in Sources */,
+				D9201D801CF822FF0005A518 /* NSObject+Class.m in Sources */,
 				D914E9B31CF2B042002EF4A2 /* TestViewController.m in Sources */,
 				D9F9A9B21CF4086000FBE21A /* UserList.m in Sources */,
+				D9201D721CF7EF400005A518 /* ChapterTree.m in Sources */,
 				D9F9A9B61CF433C900FBE21A /* ManPerson.m in Sources */,
 				D9F9A9AD1CF4061400FBE21A /* User.m in Sources */,
+				D9201D831CF8468F0005A518 /* ObjectProperty.m in Sources */,
 				F4A1564C1CF75F0C00EC5D4A /* NSObject+Parse2.m in Sources */,
-				D9F47CFE1CEDBA5B0067C8BF /* AppDelegate.m in Sources */,
 				D96690DF1CEF247D00B6AB98 /* NSObject+Parse.m in Sources */,
+				D9F47CFE1CEDBA5B0067C8BF /* AppDelegate.m in Sources */,
 				D914E9AA1CF2A552002EF4A2 /* UIViewController+Example.m in Sources */,
 				D96690D61CEF130600B6AB98 /* Person+Property.m in Sources */,
 				D9F47CFB1CEDBA5B0067C8BF /* main.m in Sources */,
+				D9201D771CF7EFCC0005A518 /* NodeItem.m in Sources */,
+				D9201D7A1CF8111C0005A518 /* UserSon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

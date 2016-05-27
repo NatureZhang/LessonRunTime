@@ -7,7 +7,11 @@
 //
 
 #import "NSObject+Parse.h"
+#import "NSObject+Class.h"
+#import "ObjectProperty.h"
 #import <objc/runtime.h>
+
+static NSString *const crashLogString = @"需要在类中实现dictObjectTypeInClassOrArray方法返回自定义属性类型....";
 
 @implementation NSObject (Parse)
 
@@ -47,67 +51,86 @@
     // 创建一个对象
     id object = [[self alloc] init];
     
-    unsigned int pCount = 0;
+    NSArray *propertiesArray = [self properties];
     
-    objc_property_t *properties = class_copyPropertyList([object class], &pCount);
-    
-    for (int i = 0; i < pCount; i ++) {
+    for (int i = 0; i < [propertiesArray count]; i ++) {
+        
+        // 取出属性
+        ObjectProperty *property = propertiesArray[i];
         
         // 取出属性名
-        const char *pName = property_getName(properties[i]);
-        NSString *pNameStr = [NSString stringWithUTF8String:pName];
-
+        NSString *pNameStr = property.pName;
+        
         // 取出字典中与属性名一样的值
         id pValue = keyValues[pNameStr];
         
         // 当值的类型是字典时
         if ([pValue isKindOfClass:[NSDictionary class]]) {
             
-            // T@"ClassName",&,N,V_user
-            NSString *pAttri = @(property_getAttributes(properties[i]));
+            objc_property_t pro = property.property;
+            NSString *pAttri = @(property_getAttributes(pro));
             NSRange range1 = [pAttri rangeOfString:@"\""];//第一个引号
             NSString *tmpStr = [pAttri substringFromIndex:range1.location+range1.length];
             NSRange range2 = [tmpStr rangeOfString:@"\""];//第二个引号
-            NSString *pClass = [tmpStr substringToIndex:range2.location];
+            NSString *pType = [tmpStr substringToIndex:range2.location];
             
-            pValue = [NSClassFromString(pClass) objectWithKeyValues:pValue];
+            
+            id pClass = NSClassFromString(pType);
+            pValue = [pClass objectWithKeyValues:pValue];
+            
         }
         
         // 当值的类型为数组时
         if ([pValue isKindOfClass:[NSArray class]]) {
             
             // 数组中是模型 必须实现这个方法 objectClassInArray
-            if ([self respondsToSelector:@selector(dictObjectClassInArray)]) {
+            if ([self respondsToSelector:@selector(dictObjectTypeInArray)]) {
                 
                 // 数组中类型字典
-                NSDictionary *dictObjc = [self dictObjectClassInArray];
+                NSDictionary *dictObjcType = [self dictObjectTypeInArray];
                 NSArray *arrayValues = pValue;
                 NSMutableArray *arrMTemp = [NSMutableArray array];
                 
-                for (NSDictionary *dict in arrayValues) {
+                for (int i = 0; i < arrayValues.count; i ++) {
                     
+                    id item = [arrayValues objectAtIndex:i];
                     // 数组中类
-                    id tmpClass = NSClassFromString([dictObjc objectForKey:pNameStr]);
+                    id varType = NSClassFromString([dictObjcType objectForKey:pNameStr]);
                     
-                    // 为类赋值
-                    id tmpValue = [tmpClass objectWithKeyValues:dict];
-                    
-                    // 类名错误 对象没有值
-                    if (tmpClass == nil || tmpValue == nil) {
-                       
-                        arrMTemp = pValue;
-#if DEBUG
-                        NSLog(@"创建模型失败，dictObjectClassInArray 发生错误.....");
-#endif
-                        continue;
+                    if ([item isKindOfClass:[NSDictionary class]]) {
                         
-                    } else {
+                        NSDictionary *dict = item;
                         
-                        [arrMTemp addObject:tmpValue];
+                        // 为类赋值
+                        id varValue = [varType objectWithKeyValues:dict];
+                        
+                        // 类名错误 对象没有值
+                        if (varType == nil || varValue == nil) {
+
+                            NSAssert(false, crashLogString);
+                            
+                        } else {
+                            
+                            [arrMTemp addObject:varValue];
+                        }
+
+                        
+                    }else if([item isKindOfClass:[NSArray class]]){
+                        
+                        NSArray *array = item;
+                        NSArray *objArray = [varType objectArrayWithValueArray:array];
+                        [arrMTemp addObject:objArray];
+                        
+                    }else{
+                        
+                        [arrMTemp addObject:item];
+                        
                     }
                 }
                 
                 pValue = [NSArray arrayWithArray:arrMTemp];
+            }else{
+                 NSAssert(false, crashLogString);
             }
         }
         // 赋值
@@ -120,63 +143,63 @@
         }
     }
     
-    free(properties);
-    
     return object;
 }
 
+ 
 // 模型转字典
 - (NSDictionary *)dictInstanceKeyValues {
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     Class class = [self class];
+
+    NSArray *properties = [class properties];
     
-    while (class != [NSObject class]) {
+    for (int i = 0; i < properties.count; i ++) {
         
-        unsigned int pCount = 0;
+        // 取出属性名
+        ObjectProperty *pro = properties[i];
+        NSString *pNameStr = pro.pName;
         
-        objc_property_t *properties = class_copyPropertyList(class, &pCount);
+        id pValue = [self valueForKey:pNameStr];
         
-        for (int i = 0; i < pCount; i ++) {
+        if([pValue isFoundationClass]) {
+            // FoundationClass
             
-            // 取出属性名
-            const char *pName = property_getName(properties[i]);
-            NSString *pNameStr = [NSString stringWithUTF8String:pName];
+        } else if([pValue isKindOfClass:[NSArray class]]){
+            // 数组
             
-            id pValue = [self valueForKey:pNameStr];
+            NSArray *objarr = pValue;
+            NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objarr.count];
             
-            if([pValue isFoundationClass]) {
-                // FoundationClass
+            for (int i = 0; i < objarr.count; i ++) {
                 
-            } else if([pValue isKindOfClass:[NSArray class]]){
-                // 数组
+                id object = [objarr objectAtIndex:i];
                 
-                NSArray *objarr = pValue;
-                NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objarr.count];
-                
-                for (int i = 0; i < objarr.count; i ++) {
+                if ([object isKindOfClass:[NSArray class]]) {
                     
-                    id object = [objarr objectAtIndex:i];
+                    [arr setObject:[[self class] arrayKeyValuesWithObjectArray:object] atIndexedSubscript:i];
+                    
+                } else {
+                    
                     [arr setObject:[object dictInstanceKeyValues] atIndexedSubscript:i];
+                    
                 }
-                
-                pValue = arr;
-                
-            } else {
-                
-                // 自定义对象
-                pValue = [pValue dictInstanceKeyValues];
             }
             
-            if (pValue == nil) {
-                pValue = [NSNull null];
-            }
+            pValue = arr;
             
-            [dic setObject:pValue forKey:pNameStr];
+        } else {
+            
+            // 自定义对象
+            pValue = [pValue dictInstanceKeyValues];
         }
         
-        free(properties);
-        class = class_getSuperclass(class);
+        if (pValue == nil) {
+            pValue = [NSNull null];
+        }
+        
+        [dic setObject:pValue forKey:pNameStr];
     }
     
     return dic;
@@ -188,29 +211,25 @@
     NSArray *arrTmp = arrObject;
     
     for (int i = 0; i < arrTmp.count; i ++) {
+        
         id object = [arrTmp objectAtIndex:i];
-        [arrayKeyValues addObject:[object dictInstanceKeyValues]];
+        
+        if ([object isFoundationClass]) {
+            
+            [arrayKeyValues addObject:object];
+            
+        }else if ([object isKindOfClass:[NSArray class]]) {
+            
+            [arrayKeyValues addObject:[self arrayKeyValuesWithObjectArray:object]];
+            
+        }else{
+            
+            [arrayKeyValues addObject:[object dictInstanceKeyValues]];
+            
+        }
     }
     
     return arrayKeyValues;
-}
-
-// 框架类
-- (BOOL)isFoundationClass {
-    
-    if ([self isKindOfClass:[NSString class]]
-        || [self isKindOfClass:[NSNumber class]]
-        || [self isKindOfClass:[NSNull class]]
-        || [self isKindOfClass:[NSURL class]]
-        || [self isKindOfClass:[NSValue class]]
-        || [self isKindOfClass:[NSData class]]
-        || [self isKindOfClass:[NSError class]]
-        || [self isKindOfClass:[NSAttributedString class]]) {
-        
-        return YES;
-    }
-    
-    return NO;
 }
 
 @end

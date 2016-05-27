@@ -11,9 +11,7 @@
 @protocol ParseKeyValueProtocol <NSObject>
 
 @optional
-+ (NSDictionary *)dictObjectClassInArray;
-
-// 假设这种情况  一个数组  数组里是不同的模型这种情况怎么处理呢？？
++ (NSDictionary *)dictObjectTypeInArray;
 
 @end
 

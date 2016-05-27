@@ -9,8 +9,8 @@
 #import "UserList.h"
 #import "NSObject+Parse.h"
 @implementation UserList
-+ (NSDictionary *)dictObjectClassInArray {
-    return @{@"userList":@"User"};
++ (NSDictionary *)dictObjectTypeInArray {
+    return @{@"userList":@"UserSon"};
 }
 
 

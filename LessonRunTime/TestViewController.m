@@ -13,9 +13,12 @@
 #import "Person+Property.h"
 #import <objc/runtime.h>
 #import "NSObject+Parse.h"
+#import "NSObject+Class.h"
 
 #import "User.h"
 #import "UserList.h"
+#import "ChapterTree.h"
+#import "UserSon.h"
 
 @interface TestViewController ()
 
@@ -65,6 +68,7 @@
     
     objc_property_t *properties = class_copyPropertyList([ManPerson class], &pCount);
     
+   
     for (int i = 0; i < pCount; i ++) {
         
         const char *pName = property_getName(properties[i]);
@@ -74,6 +78,9 @@
         NSLog(@"%s : %s", className, pName);
         
     }
+    
+    NSLog(@"%@", [UserSon properties]);
+    
     
 }
 
@@ -119,79 +126,170 @@
 //                                           ]
 //                            };
     
+//    NSDictionary *dict = @{
+//                           @"usersDesc":@"这是一个测试",
+//                           @"user" :  @{
+//                                        @"name" : @"zhangdong",
+//                                        @"icon" : @"lufy.png",
+//                                        },
+//                           @"userList":@[
+//                                   @{
+//                                       @"name" : @"zhangdong",
+//                                       @"icon" : @"lufy.png",
+//                                       },
+//                                   @{
+//                                       @"name" : @"zhangdong",
+//                                       @"icon" : @"lufy.png",
+//                                       },
+//                                   @{
+//                                       @"name" : @"zhangdong",
+//                                       @"icon" : @"lufy.png",
+//                                       }
+//                                   ]
+//                            };
+//    
+//    UserList *userList = [UserList objectWithKeyValues:dict];
+//    NSLog(@"%@--%@", userList.user.name, userList.usersDesc);
+//    NSDictionary *dic = [userList dictInstanceKeyValues];
+//    
+//    // 1.定义一个字典数组
+//    NSArray *dictArray = @[
+//                           @{
+//                               @"name" : @"Jack",
+//                               @"icon" : @"lufy.png",
+//                               },
+//                           
+//                           @{
+//                               @"name" : @"Rose",
+//                               @"icon" : @"nami.png",
+//                               }
+//                           ];
+//    NSArray *userArray = [User objectArrayWithValueArray:dictArray];
+//
+//    NSArray *values = [User arrayKeyValuesWithObjectArray:userArray];
+//    
+//    
+//    NSArray *dictArray2 = @[
+//                            
+//                            @[
+//                                @{
+//                                    @"name" : @"Jack",
+//                                    @"icon" : @"lufy.png",
+//                                    },
+//                                
+//                                @{
+//                                    @"name" : @"Rose",
+//                                    @"icon" : @"nami.png",
+//                                    }
+//                                ],
+//                            @[
+//                                @{
+//                                    @"name" : @"Jack",
+//                                    @"icon" : @"lufy.png",
+//                                    },
+//                                
+//                                @{
+//                                    @"name" : @"Rose",
+//                                    @"icon" : @"nami.png",
+//                                    }
+//                                ]
+//                            
+//                           ];
+//
+//    NSArray *userArray2 = [User objectArrayWithValueArray:dictArray2];
+    
+//    NSArray *values2 = [User arrayKeyValuesWithObjectArray:userArray2];
+    
+//    NSDictionary *jsonDic = [NSDictionary dictionaryWithContentsOfFile:@"/Users/tw/Desktop/jsonString.txt"];
+//    
+//    ChapterTree *chapter = [ChapterTree objectWithKeyValues:jsonDic];
+//    
+//    NSDictionary *chapterDic = [chapter dictInstanceKeyValues];
+    
+//    NSDictionary *dict = @{
+//                           @"usersDesc":@"这是一个测试",
+//                           @"user" :  @{
+//                                        @"name" : @"zhangdong",
+//                                        @"icon" : @"lufy.png",
+//                                        },
+//                           @"userList":@[
+//                                   
+//                                   @"zhangdong",
+//                                   @"naxingbo",
+//                                   @"jiayuebo",
+//                                   @"zhaojie",
+//                                   @"zhaoyingchao"
+//                                   
+//                                   ]
+//                            };
+//    
+//    UserList *userList = [UserList objectWithKeyValues:dict];
+//    
+//    NSDictionary *dict2 = [userList dictInstanceKeyValues];
+    
     NSDictionary *dict = @{
                            @"usersDesc":@"这是一个测试",
                            @"user" :  @{
-                                        @"name" : @"zhangdong",
-                                        @"icon" : @"lufy.png",
-                                        },
+                                   @"name" : @"zhangdong",
+                                   @"icon" : @"lufy.png",
+                                   },
                            @"userList":@[
-                                   @{
-                                       @"name" : @"zhangdong",
-                                       @"icon" : @"lufy.png",
-                                       },
-                                   @{
-                                       @"name" : @"zhangdong",
-                                       @"icon" : @"lufy.png",
-                                       },
-                                   @{
-                                       @"name" : @"zhangdong",
-                                       @"icon" : @"lufy.png",
-                                       }
+                                   @[
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           },
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           },
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           }
+                                       ],
+                                   @[
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           },
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           },
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           }
+                                       ],
+                                   @[
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           },
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           },
+                                       @{
+                                           @"name" : @"zhangdong",
+                                           @"icon" : @"lufy.png",
+                                           
+                                           }
+                                       ]
                                    ]
-                            };
+                           };
     
     UserList *userList = [UserList objectWithKeyValues:dict];
-    NSLog(@"%@--%@", userList.user.name, userList.usersDesc);
-    NSDictionary *dic = [userList dictInstanceKeyValues];
     
-    // 1.定义一个字典数组
-    NSArray *dictArray = @[
-                           @{
-                               @"name" : @"Jack",
-                               @"icon" : @"lufy.png",
-                               },
-                           
-                           @{
-                               @"name" : @"Rose",
-                               @"icon" : @"nami.png",
-                               }
-                           ];
-    NSArray *userArray = [User objectArrayWithValueArray:dictArray];
-
-    NSArray *values = [User arrayKeyValuesWithObjectArray:userArray];
+    NSArray *arr = userList.userList;
+    NSArray *sons1 = arr[0];
+    
+    UserSon *son = [sons1 objectAtIndex:0];
     
     
-    NSArray *dictArray2 = @[
-                            
-                            @[
-                                @{
-                                    @"name" : @"Jack",
-                                    @"icon" : @"lufy.png",
-                                    },
-                                
-                                @{
-                                    @"name" : @"Rose",
-                                    @"icon" : @"nami.png",
-                                    }
-                                ],
-                            @[
-                                @{
-                                    @"name" : @"Jack",
-                                    @"icon" : @"lufy.png",
-                                    },
-                                
-                                @{
-                                    @"name" : @"Rose",
-                                    @"icon" : @"nami.png",
-                                    }
-                                ]
-                            
-                           ];
-
-    NSArray *userArray2 = [User objectArrayWithValueArray:dictArray2];
     
-    NSArray *values2 = [User arrayKeyValuesWithObjectArray:userArray2];
+    NSDictionary *dic2 = [userList dictInstanceKeyValues];
     
     
 }

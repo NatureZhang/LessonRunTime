@@ -56,7 +56,7 @@
         // 取出属性名
         const char *pName = property_getName(properties[i]);
         NSString *pNameStr = [NSString stringWithUTF8String:pName];
-
+        
         // 取出字典中与属性名一样的值
         id pValue = keyValues[pNameStr];
         
@@ -92,10 +92,10 @@
                     NSDictionary *dictionaryJsonItem = item;
 
                     // 数组中是模型 必须实现这个方法 objectClassInArray
-                    if ([self respondsToSelector:@selector(dictObjectClassInArray)]) {
+                    if ([self respondsToSelector:@selector(dictObjectTypeInArray)]) {
                         
                         // 数组中类型字典
-                        NSDictionary *dictObjcType = [self dictObjectClassInArray];
+                        NSDictionary *dictObjcType = [self dictObjectTypeInArray];
                         // 数组中类
                         id objcType = NSClassFromString([dictObjcType objectForKey:pNameStr]);
                         
